@@ -1,0 +1,328 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Tahoma", sans-serif;
+    background-image: url("../images/backgrouds/winxp.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    overflow: hidden;
+}
+
+#desktop {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.desktop-icon {
+    cursor: pointer;
+    margin: 10px;
+    color: white;
+    left:15px;
+    max-width: 80px;
+}
+
+.desktop-icon img {
+    width: 48px; 
+    height: 48px;
+    margin-left: 10px;
+}
+
+.taskbar-app {
+    margin-left: 10px;
+    padding: 10px;
+    color: black;
+    background-color: transparent;
+    cursor: pointer;
+}
+.taskbar-app.active {
+    background-color: #004080;
+    color: white;
+}
+
+#taskbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background-color: #C0C0C0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #fff;
+}
+
+#start-button {
+    display: flex;
+    align-items: center;
+    background-color: #004080;
+    color: white;
+    padding: 0 10px;
+    height: 100%;
+    cursor: pointer;
+    
+    img {
+        width: 20px;
+        margin-right: 5px;
+    }
+
+    span {
+        font-weight: bold;
+        font-size: 14px;
+    }
+}
+
+#taskbar-apps {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 10px;
+}
+
+#taskbar-time {
+    padding: 0 10px;
+    font-size: 14px;
+}
+
+.window {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 400px;
+    background-color: #fff;
+    border: 2px solid #C0C0C0;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.window-header {
+    background-color: #000080;
+    color: white;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+}
+
+.window-body {
+    padding: 10px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+#start-menu {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 200px;
+    background-color: #C0C0C0;
+    border: 1px solid #fff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+    .start-menu-header {
+        background-color: #004080;
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .start-menu-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            padding: 10px;
+            cursor: pointer;
+            &:hover {
+                background-color: #808080;
+            }
+        }
+    }
+}
+
+.cursor {
+    font-weight: bold;
+    font-size: 24px;
+    color: #333;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+#soundOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#soundOverlay i {
+    color: #fff;
+    font-size: 100px;
+    margin-bottom: 20px;
+}
+
+#soundOverlay p {
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+}
+
+#soundOverlay:hover {
+    cursor: pointer;
+}
+
+.wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 45vw;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 2px solid #C0C0C0;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+
+    header{
+        background-color: #000080;
+        color: white;
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: move;
+    }
+    header.active{
+        cursor: move;
+        user-select: none;
+    }
+    .content{
+        border: none;
+        padding: none;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        video {
+            width: 100%;
+        }
+    }
+}
+
+.notepad-content {
+    margin-left: 10px;
+}
+
+#app_powershell {
+    iframe {
+        width: 45vw;
+        height: 40vh;
+    }
+}
+#app_iexplore {
+    iframe {
+        width: 45vw;
+        height: 60vh;
+    }
+}
+
+#videoContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+#video {
+    position: absolute;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+#shutdown {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+#shutdownVideo {
+    position: absolute;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+#blackScreen{
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: 'Tahoma', sans-serif;
+    color: #0f0;
+
+    display: none;
+
+    z-index: 10000;
+
+}
+
+.dos {
+    display: none;
+    white-space: pre-wrap;
+    font-size: 16px;
+}
+
+#dos_line, #command {
+    margin: 0;
+}
+
+#randomOutput {
+    margin-top: 20px;
+    color: #0f0;
+    height: calc(100vh - 100px);
+    white-space: pre-wrap; 
+    font-size: 14px;
+    line-height: 20px;
+    overflow-y: hidden; 
+}
+
+.closecall-button{
+    background-color: red;
+}

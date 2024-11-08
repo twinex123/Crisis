@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Explorer</title>
+    <link rel="stylesheet" href="../assets/css/iexplorer.css">
+</head>
+<body>
+    
+    <div class="content">
+        <div class="url_bar">
+            <p>https://find-ip-location/search</p>
+        </div>
+
+        <div class="website">
+
+            <div class="banner">
+                <div class="logo">
+                    <img src="../assets/images/icons/iplocation.png" alt="Logo">
+                </div>
+                <div class="presentation">
+                    <h1>#1 IP LOCATION FINDER</h1>
+                    <h4>Since 1998</h4>
+                </div>
+            </div>
+
+            <div class="text">
+                <h3>
+                    Bienvenue sur l'outil de localisation d'adresse ip. <br>
+                    Rentrez l'adresse ip dont vous voulez récupérer la localisation dans le champ en dessous et cliquez sur entrer.
+                </h3>
+            </div>
+
+            <div class="finder">
+                <input autocomplete="off" type="text" placeholder="Votre adresse ip" id="ip_adress"> <input type="submit" value="Soumettre" onclick="verifyIp()">
+            </div>
+
+            <div class="result" style="visibility: hidden;">
+                <img src="../assets/images/result.png" alt="Résultat adresse ip">
+            </div>
+        </div>
+
+        <footer>
+            <h5>&copy; IP LOCATION, 2004 </h5>
+        </footer>
+    </div>
+
+    <script src="../assets/js/iplocation.js"></script>
+
+</body>
+</html>

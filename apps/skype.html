@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skype call</title>
+    <link rel="stylesheet" href="../assets/css/skype.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="../assets/js/script.js" defer></script> <!-- Utiliser defer -->
+</head>
+<body>
+    <div class="call_content">
+        <div class="left">
+            <div class="img_container1" id="image1"></div>
+        </div>
+        <div class="icons">
+            <i class="fa-solid fa-chevron-right"></i>
+            <i class="fa-solid fa-chevron-right"></i>
+            <i class="fa-solid fa-chevron-right"></i>
+        </div>
+        <div class="right" onclick="acceptCall()">
+            <div class="img_container2" id="image2"></div>
+        </div>
+    </div>
+
+    <div class="current_call" style="display: none;"> <!-- Cacher par défaut -->
+        <h1>Appel en cours</h1>
+        <div class="timecode">
+            <p>00:00</p>
+        </div>
+    </div>
+
+    <script>
+        let secondsElapsed = 0;  
+        let timer; 
+
+        function acceptCall() {
+
+            const loyd_voice = new Audio("../assets/sounds/mrloyd_1.mp3");
+            loyd_voice.play().catch(function (error) {
+                console.error("Erreur lors de la lecture de l'audio de Mr. Loyd :", error);
+            });
+
+            document.querySelector(".call_content").style.display = "none";
+            document.querySelector(".current_call").style.display = "block";
+
+            startChrono();
+
+            setTimeout(() => {
+                loyd_voice.pause();
+                hideSkype();
+            }, 25000);  
+        }
+
+        function startChrono() {
+            timer = setInterval(() => {
+                secondsElapsed++;
+                updateDisplay();
+            }, 1000);
+        }
+
+        function updateDisplay() {
+            const minutes = Math.floor(secondsElapsed / 60);
+            const seconds = secondsElapsed % 60;
+            const timecode = document.querySelector('.timecode p');
+            
+            if (timecode) {
+                timecode.textContent = 
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            } else {
+                console.error("L'élément timecode n'est pas disponible.");
+            }
+        }
+
+        function hideSkype() {
+            window.parent.postMessage({type: 'hideSkype'}, '*'); 
+        }
+    </script>
+</body>
+</html>

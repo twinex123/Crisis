@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSI 2024 - Connexion</title>
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <style>
+
+        iframe {
+            height: 100vh;
+            width: 100vw;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .crt-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: brightness(1.2) contrast(1.2) saturate(1.2);
+        }
+        .crt-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+        .crt-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+        }
+        
+
+        @keyframes flicker {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.9;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+    
+    <div class="screen">
+        <iframe src="login.html" frameborder="0"></iframe>
+        <div class="crt-overlay"></div>
+        <div class="crt-lines"></div>
+    </div>
+
+    <script>
+        function addFlicker() {
+            const overlay = document.querySelector('.crt-overlay');
+            setInterval(() => {
+                overlay.style.opacity = (Math.random() * 0.05) + 0.95;
+            }, 100);
+        }
+
+        function addScanlines() {
+            const lines = document.querySelector('.crt-lines');
+            let position = 0;
+            setInterval(() => {
+                position += 1;
+                if (position > 2) position = 0;
+                lines.style.backgroundPosition = `0 ${position}px`;
+            }, 30);
+        }
+
+        window.onload = () => {
+            addFlicker();
+            addScanlines();
+        };
+    </script>
+    <script src="assets/js/engine.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
