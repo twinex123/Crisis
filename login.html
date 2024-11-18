@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSI 2024 - Connexion</title>
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header></header>
+    <main>
+        <div class="img">
+            <img src="assets/images/login/logo.png" alt="Logo windows xp" />
+            <h1>Pour commencer, entrez votre nom d'utilisateur.</h1>
+        </div>
+        <div class="line"></div>
+        <div class="users">
+            <section class="lucas">
+                <div class="iconA"></div>
+                <div class="user">
+                    <h3>Invité</h3>
+                    <p>Entrez votre nom d'utilisateur</p>
+                    <div class="input">
+                        <input type="text" id="username">
+                        <button onclick="loginComputer()" class="green"> <img src="assets/images/login/vector.png" alt=""> </button>
+                        <button class="blue"> <img src="assets/images/login/_.png" alt=""> </button>
+                    </div>
+                </div>
+            </section>
+            <section class="crystal">
+                <div class="iconB"></div>
+                <div class="user">
+                    <p>Mr. Loyd</p>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="btn" onclick="shutdownGame()">
+            <button> <img src="assets/images/login/group2.png" alt=""> </button>
+            <p>Éteindre l'odinateur</p>
+        </div>
+        <div class="informations">
+            <p>Après vous être connecté, vous pouvez changer de compte.</p>
+            <p>Il vous faut aller au centre de contrôle et changer les réglages.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/engine.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

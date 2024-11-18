@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSI 2024 - Tutorial</title>
+    <script src="https://kit.fontawesome.com/29ce918257.js" crossorigin="anonymous"></script>
+</head>
+<body onclick="startGame()">
+
+    <div class="startGameDiv" onclick="startGame()" style="position: absolute; top: 0; left: 0; background-color: transparent; width: 100vw; height: 100vh; z-index: 1000;">
+
+    </div>
+
+    <style>
+        body {
+            overflow: hidden;
+        }
+        .off_screen img {
+            width: 200px;
+            height: 120px;
+        }
+    </style>
+
+    <div class="off_screen">
+        <img src="assets/images/off.png" alt="Asus logo">
+    </div>
+
+    <script src="assets/js/engine.js"></script>
+    <script>
+        const logo = document.querySelector('.off_screen img');
+
+        const logoWidth = 200;
+        const logoHeight = 120;
+
+        let x = Math.random() * (window.innerWidth - logoWidth);
+        let y = Math.random() * (window.innerHeight - logoHeight);
+        let speedX = 2; 
+        let speedY = 2;
+
+        function animateLogo() {
+            x += speedX;
+            y += speedY;
+
+            if (x <= 0 || x + logoWidth >= window.innerWidth) {
+                speedX *= -1; 
+            }
+            if (y <= 0 || y + logoHeight >= window.innerHeight) {
+                speedY *= -1;
+            }
+
+            logo.style.transform = `translate(${x}px, ${y}px)`;
+
+            requestAnimationFrame(animateLogo);
+        }
+
+        animateLogo();
+
+    </script>
+</body>
+</html>

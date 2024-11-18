@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSI 2024 - Powershell</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js"></script>
+    <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+    <link href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            min-width: 50vw;
+            min-height: 50vh;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <script src="../assets/js/script.js"></script>
+    <script>
+        let connect = false;
+        prompt_message = "PS C:\\Users\\"+localStorage.getItem("username")+"> "
+
+        function netstatMessage(){
+            window.parent.postMessage({type: 'netstatMessage'}, '*'); 
+        }
+        function shutdownServer(){
+            window.parent.postMessage({type: 'shutdownServer'}, '*'); 
+        }
+        function execute(prog) {
+            window.parent.postMessage(prog, '*')
+        }
+        $('body').terminal({
+            echo: function (what) {
+                this.echo(what);
+            },
+            whoami: function () {
+                this.echo(localStorage.getItem('username'));
+            },
+            winver: function () {
+                execute();
+            },
+            msedge: function () {
+                execute("msedge");
+            },
+            vscode: function () {
+                execute("vscode");
+            },
+            powershell: function () {
+                execute("powershell");
+            },
+            help: function () {
+                this.echo("\nVoici toutes les commandes disponibles: \nhelp: affiche ce message\nnetstat: afficher les connexions extérieures au serveur\nwhoami: informations sur votre compte\nipconfig: affiche votre ip\n");
+            },
+            netstat: function(){
+                this.echo("\nConnexion récentes au serveur: \n192.168.1.32\n192.168.1.32\n192.168.1.32\n192.168.1.32\n192.168.1.32\n127.270.3.2\n192.168.1.32\n192.168.1.32\nConnexions le "+new Date());
+                netstatMessage()
+                
+            },
+            ipconfig: function(){
+                this.echo("Votre adresse ip locale:\n192.168.1.32");
+            },
+            ssh: function() {
+                this.echo("Pour vous connecter à toutes les machines en même temps, utilisez la commande 'ssh_all'. Pour éteindre les machines, tapez ensuite 'shutdown_all'.\n")
+            },
+            ssh_all: function(){
+                connect = true;
+                this.echo("Vous êtes bien authentifié sur le serveur.");
+            },
+            shutdown_all: function(){
+                if(connect == true){
+                    this.echo("Toutes les machines connectées au serveur s'éteindront dans 5 secondes.")
+                    
+                    shutdownServer();
+                }else{
+                    this.echo("Vous n'êtes connecté à aucune machine.");
+                }
+            },
+            close: function () {
+                this.echo("Fermez avec la croix.");
+            }
+        }, {
+            greetings: 'Windows PowerShell \nCopyright (C) Microsoft Corporation. All rights reserved.\n\n',
+            prompt: prompt_message
+        });
+        document.body.style = "--background: #012456 !important;--color: #EEEDF0 !important; --link-color: #EEEDF0 !important"
+    </script>
+
+</body>
+
+</html>

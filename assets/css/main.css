@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans:wght@500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&family=Montserrat&family=Open+Sans:wght@500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@300;400;500&display=swap');
+
+body {
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+#main_conductor_iframe {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.menu {
+    display: none;
+}
+.credits {
+    position: absolute;
+}
+
+.card_hero {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: #090909;
+    top: 0;
+    left: 0;
+}
+
+.card {
+    background-color: #101010;
+    width: 50vw;
+    height: 80vh;
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+    margin-top: 0vh;
+    border: none;
+    border-radius: 15px;
+    position: absolute;
+}
+
+.game_image {
+    width: 150px;
+    height: 200px;
+    margin-left: 50px;
+    background: url("../images/hero.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    border: 1px solid #2b2b2b;
+    margin-top: 30px;
+}
+
+.game_details {
+    margin-top: calc(-24vh);
+    margin-left: calc(50px + 150px + 40px);
+    margin-right: 20px;
+}
+
+.game_start button {
+    margin-left: 50px;
+    width: 175px;
+    background-color: #090909;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #2b2b2b;
+    cursor: pointer;
+    margin-top: 30px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1em;
+}
+
+.game_start button:hover {
+    background-color: #2b2b2b;
+}
+
+.game_start button i {
+    margin-left: 10px;
+}
+
+.credits {
+    position: absolute;
+    display: none;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.credits_text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+}
+
+.menu_content {
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.menu_title h1 {
+    font-size: 3em;
+}
+
+.close_menu {
+    font-size: 2.5em;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.achievement_title h3 {
+    font-size: 1.5em;
+}
+
+.achievements_bar {
+    display: flex;
+}
+
+.achievements_bar p {
+    margin-left: 10px;
+    
+    margin-top: 2px;
+}
+
+.progress_container {
+    margin-top: 10px;
+    height: 1vh;
+    width: 20vh;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+
+.menu_footer {
+    position: absolute;
+    bottom: 10px;
+    left: 50px;
+}
+
+.game_requires i {
+    margin-right: 10px;
+}
+
+/* SPLASH SCREEN */
+
+.splash_screen {
+    display: block;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: url("../images/splash_screen.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+.splash_shadow {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    box-shadow: 750px -400px 375px 40px rgba(0, 0, 0, .9) inset;;
+    z-index: 100;
+}
+.splash_menu {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    margin-left: 5vw;
+    margin-top: 5vh;
+}
+.socials {
+    position: absolute;
+    right: calc(50px + 5vw);
+    top: calc(50px - 5vh);
+    color: white;
+}
+.github_social {
+    font-size: 2em;
+}
+.github_social a {
+    color: white;
+    text-decoration: none;
+}
+.options {
+    color: white;
+}
+.options button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 2em;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    min-width: 250px;
+    text-align: left;
+    cursor: pointer;
+}
+.options ul {
+    list-style: none;
+    list-style-type: none;
+}
+
+.options button:hover, .selected {
+    background-color: white;
+    color: black;
+}
+
+.tips_container {
+    position: absolute;
+    bottom: calc(50px + 5vh);
+    left: 20px;
+    display: flex;
+    color: white;
+}
+.tips_icon {
+    font-size: 2em;
+    margin-right: 10px;
+}
+
+.full_credits {
+    background-color: black;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+}
+
+.credits_content {
+    display: inline-block;
+    text-align: center;
+    animation: scroll 25s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+
+.credits_logo {
+    position: absolute;
+    bottom: 30px;
+    right: 35px;
+}
+.close_credits {
+    color: white;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.halo {
+    position: absolute;
+    width: 300px; 
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2), transparent);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    animation: haloAnimation 4s ease-out forwards; 
+}
+
+@keyframes haloAnimation {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.5); 
+        opacity: 0.5; 
+    }
+    100% {
+        transform: scale(2); 
+        opacity: 0;
+    }
+}
+
+.epilepsy_warning{
+    position: absolute;
+    height: 6vh;
+    width: 20vw;
+    background-color: rgb(18, 18, 18);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid red;
+    border-radius: 10px;
+    bottom: 25px;
+    left: 25px;
+}

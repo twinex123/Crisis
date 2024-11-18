@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #282c34;
+}
+
+.game-container {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 300px;
+  width: 100px;
+}
+
+.connector {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: grey;
+  cursor: pointer;
+}
+
+#left-1 {
+  background-color: red;
+}
+
+#left-2 {
+  background-color: blue;
+}
+
+#left-3 {
+  background-color: yellow;
+}
+
+#left-4 {
+  background-color: green;
+}
+
+#right-1 {
+  background-color: red;
+}
+
+#right-2 {
+  background-color: blue;
+}
+
+#right-3 {
+  background-color: yellow;
+}
+
+#right-4 {
+  background-color: green;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}/*# sourceMappingURL=fixphone.css.map */

@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Tahoma", sans-serif;
+}
+
+body {
+  background-color: black;
+  color: white;
+  overflow: hidden;
+}
+
+.call_content {
+  display: flex;
+  justify-content: space-between;
+  font-size: 3em;
+  padding: 28px;
+}
+.call_content .icons {
+  margin-top: 10px;
+}
+
+.img_container1 {
+  width: 80px;
+  height: 80px;
+  background: url("../images/login/icon.jpg") no-repeat center center;
+  background-size: cover;
+  border-color: #fff;
+  border-radius: 15px;
+}
+
+.img_container2 {
+  width: 80px;
+  height: 80px;
+  background: url("../images/icons/phone.png") no-repeat center center;
+  background-size: cover;
+  border-color: #fff;
+  cursor: pointer;
+}
+
+.current_call {
+  margin-top: 20px;
+  display: none;
+  color: white;
+  text-align: center;
+}
+.current_call .timecode {
+  font-size: 25px;
+  margin-top: 20px;
+}/*# sourceMappingURL=skype.css.map */

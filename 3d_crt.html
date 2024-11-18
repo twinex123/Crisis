@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSI 2024</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/renderers/CSS3DRenderer.js"></script>
+    <script src="https://kit.fontawesome.com/29ce918257.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="assets/css/3d.css">
+</head>
+<body>
+
+    <div class="fixed_content">
+        <div class="fixed_bar">
+            <div class="bar_menu" onclick="toggleMenuCtrl()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="fullscreen" onclick="toggleFullscreen()">
+                <i class="fa-solid fa-expand"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="iframe_fullscreen">
+        <iframe src="crt.html" frameborder="0"></iframe>
+    </div>
+
+    <div class="phone_open">
+        <iframe src="apps/fullphone.html" frameborder="0"></iframe>
+    </div>
+
+    <script src="assets/js/3d.js"></script>
+
+    <script>
+        function toggleMenuCtrl(){
+            console.log("Ctrl")
+            window.parent.postMessage({type: 'toggleMenuCtrl'}, '*'); 
+        }
+    </script>
+
+    <script>
+        
+        window.addEventListener("storage", (event) => {
+            if (event.key === "toggle_fs" && event.newValue == "1") {
+                toggleFullscreen();
+                console.log("Plein écran activé via toggle_fs");
+
+                // Remet toggle_fs à 0 après avoir activé le plein écran
+                localStorage.setItem("toggle_fs", 0);
+            }
+        });
+    </script>
+</body>
+</html>

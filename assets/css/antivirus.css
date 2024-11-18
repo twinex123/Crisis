@@ -1,0 +1,51 @@
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #008080;
+    color: #fff;
+    overflow: hidden;
+}
+
+.container {
+    padding: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 15px;
+    background-color: #000080;
+}
+
+.title {
+    text-align: center;
+    color: #ffff00;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.progress-container {
+    width: 100%;
+    background-color: #c0c0c0;
+    height: 20px;
+    margin: 20px 0;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #00ff00;
+    transition: width 0.5s;
+}
+
+.status {
+    margin: 10px 0;
+    padding: 5px;
+    background-color: #000;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.file-name {
+    color: #00ff00;
+    margin: 2px 0;
+}
