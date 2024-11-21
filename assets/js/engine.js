@@ -1,4 +1,4 @@
-//GESTION 'SERVEUR'
+//GESTION ORDINATEUR APPS ETC
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Verifying cookies...");
@@ -36,49 +36,34 @@ document.getElementById("soundOverlay").addEventListener("click", () => {
 const wrappers = document.querySelectorAll(".wrapper");
 
 wrappers.forEach(wrapper => {
-    const header = wrapper.querySelector("header");
-    let isDragging = false;
+    let offsetX = 0, offsetY = 0, startX = 0, startY = 0;
 
-    function onDrag(e) {
-        if (!isDragging) return;
-        
-        let getStyle = window.getComputedStyle(wrapper);
-        let leftVal = parseInt(getStyle.left);
-        let topVal = parseInt(getStyle.top);
-        wrapper.style.left = `${leftVal + e.movementX}px`;
-        wrapper.style.top = `${topVal + e.movementY}px`;
-    }
+    const onMouseDown = (e) => {
+                    
+        startX = e.clientX;
+        startY = e.clientY;
+        offsetX = wrapper.offsetLeft;
+        offsetY = wrapper.offsetTop;
 
-    header.addEventListener("mousedown", () => {
-        isDragging = true;
-        header.classList.add("active");
-        wrapper.style.zIndex = "1000";
-        
-        wrappers.forEach(w => {
-            if (w !== wrapper) {
-                w.style.zIndex = "10";
-            }
-        });
-        
-        document.addEventListener("mousemove", onDrag);
-    });
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
 
-    document.addEventListener("mouseup", () => {
-        isDragging = false;
-        header.classList.remove("active");
-        document.removeEventListener("mousemove", onDrag);
-    });
+        e.preventDefault();
+    };
 
-    wrapper.addEventListener("mousedown", () => {
-        wrapper.style.zIndex = "1000";
-        wrappers.forEach(w => {
-            if (w !== wrapper) {
-                w.style.zIndex = "10";
-            }
-        });
-    });
+    const onMouseMove = (e) => {
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        wrapper.style.left = `${offsetX + dx}px`;
+        wrapper.style.top = `${offsetY + dy}px`;
+    };
+
+    const onMouseUp = () => {
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+    }; 
+    wrapper.addEventListener('mousedown', onMouseDown);
 });
-
 
 //Launch apps
 
@@ -129,22 +114,6 @@ document.getElementById("video_li").addEventListener("click", () => {
 });
 
 //GESTION OUVERTURES AUTRES APPS
-
-
-// var explorerIcon = document.getElementById("explorer-icon");
-// var explorerWindow = document.getElementById("explorer-window");
-
-// explorerIcon.addEventListener("click", () => {
-//     explorerWindow.classList.remove("hidden");
-    
-//     var taskbarApp = document.createElement("div");
-//     taskbarApp.classList.add("taskbar-app");
-//     taskbarApp.innerHTML = "Explorateur";
-//     taskbarApp.onclick = () => {
-//         explorerWindow.classList.toggle("hidden");
-//     };
-//     taskbarApps.appendChild(taskbarApp);
-// });
 
 var notepadIcon = document.getElementById("notepad-icon");
 var notepadWindow = document.getElementById("app_notepad");

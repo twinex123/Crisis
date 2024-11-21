@@ -98,6 +98,10 @@ function typeText(text) {
 window.onload = function() {
     const message = "Bonjour " + username + ". Nous avons urgemment besoin de vous. Veuillez ouvrir le menu de votre ordinateur et lancer l'application Video.";
     typeText(message);
+
+    setTimeout(() => {
+        document.getElementById("cctv").style.display = "none";
+    }, 5000);
 };
 
 document.getElementById("menu_username").innerText = username;
@@ -285,6 +289,8 @@ function problemMessage(){
     document.getElementById("typed-text").innerHTML = "";
     typeText("Oula... ça prend des proportions inquiétantes. Je vais éxécuter un antivirus sur cette machine pour vous aider, ne touchez à rien!");
 
+    terminalWindow.classList.toggle("hidden");
+
     setTimeout(() => {
         document.getElementById("app_antivirus").classList.toggle("hidden");
         const iframe = document.getElementById('antivirus_iframe');
@@ -322,10 +328,25 @@ function fileFound(){
 
         localStorage.setItem("can_open_phone", 1);
 
+        var video = document.getElementById("video_presentation");
+        var video_element = document.getElementById("app_video");
+
+        video_element.classList.toggle("hidden");
+        video.currentTime = 0;
+        video.play();
+
         setTimeout(() => {
-            const takePhoneAudio = new Audio("assets/sounds/tutorial/tuto_voice7.mp3");
+            const loyd_problem_audio = new Audio("assets/sounds/loyd_problem.mp3");
+            loyd_problem_audio.play();
+        }, 2000);
+
+        setTimeout(() => {
+
+            video_element.classList.toggle("hidden");
+
+            const takePhoneAudio = new Audio("assets/sounds/tutorial/tuto_voice8.mp3");
             takePhoneAudio.play();
-        }, 8000)
+        }, 10000)
     }, 8000)
 }
 

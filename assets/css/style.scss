@@ -326,3 +326,21 @@ body, html {
 .closecall-button{
     background-color: red;
 }
+
+#snake-icon {
+    position: absolute;
+    left: calc(80px);
+    top: 0px;
+    max-width: 80px;
+    max-height: 80px0;
+
+    p {
+        margin-top: 15px;
+    }
+}
+
+#app_snake {
+    height: 55vh;
+
+    iframe { height: 55vh; }
+}

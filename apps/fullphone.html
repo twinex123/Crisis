@@ -66,7 +66,7 @@
                     <img src="../assets/images/apple_icons/Movies.png" alt="Clock">
                     <span>Films</span>
                 </div>
-                <div class="app-icon">
+                <div class="app-icon" onclick="openMaps()">
                     <img src="../assets/images/apple_icons/Maps.png" alt="Maps">
                     <span>Plans</span>
                 </div>
@@ -154,47 +154,12 @@
                         <p id="hour_detail">12:00</p>
                     </div>
                 </div>
-                <div class="close-button" onclick="closePhoneApp()">
+                <div class="close-button" onclick="closeMaps()">
                     <i class="fas fa-times"></i>
                 </div>
             </div>
-            <div class="phone-interface">
-                <div class="phone-display">
-                    <span class="phone-number"></span>
-                </div>
-                <div class="phone-keypad">
-                    <div class="keypad-row">
-                        <div class="key" id="hangup_1">1</div>
-                        <div class="key" id="hangup_2">2<span class="subtext">ABC</span></div>
-                        <div class="key"id="hangup_3">3 <span class="subtext">DEF</span></div>
-                    </div>
-                    <div class="keypad-row">
-                        <div class="key" id="hangup_4">4<span class="subtext">GHI</span></div>
-                        <div class="key" id="hangUp">5<span class="subtext" id="hangUpSub">JKL</span></div>
-                        <div class="key" id="hangup_6">6<span class="subtext">MNO</span></div>
-                    </div>
-                    <div class="keypad-row row3">
-                        <div class="key">7<span class="subtext">PQRS</span></div>
-                        <div class="key">8<span class="subtext">TUV</span></div>
-                        <div class="key">9<span class="subtext">WXYZ</span></div>
-                    </div>
-                    <div class="keypad-row row4">
-                        <div class="key">*</div>
-                        <div class="key">0<span class="subtext">+</span></div>
-                        <div class="key">#</div>
-                    </div>
-                    <div class="keypad-row" id="actionsRow">
-                        <div class="key call-button" onclick="callNumber()">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="key delete-button">
-                            <i class="fas fa-delete-left"></i>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            
+        
+            <div id="red-point"></div>
         </div>
 
     </div>

@@ -243,6 +243,9 @@ const minRotationX = -Math.PI / 6;
 
 function handleMouseMove(event) {
     if (isDragging) {
+
+        crt_iframe.style.pointerEvents = "none";
+
         const deltaMove = {
             x: event.movementX,
             y: event.movementY
@@ -267,6 +270,8 @@ function handleMouseMove(event) {
             const limitedMinRotationX = 0; 
             camera.rotation.x = Math.max(limitedMinRotationX, Math.min(limitedMaxRotationX, newRotationX));
         }
+    }else {
+        crt_iframe.style.pointerEvents = "auto";
     }
 }
 

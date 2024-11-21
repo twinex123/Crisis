@@ -49,14 +49,11 @@ function creditsStart() {
 }
 
 const creditsTexts = [
-    "Développé par Florestan",
-    "Soundtrack: du jeu 'Twelve Minutes' ",
-    "Technologies utilisées: Three.js, HTML, CSS (SCSS), JavaScript",
-    "",
-    "Vous travaillez en tant qu'ingénieur de sécurité informatique pour la NSA",
-    "Vos missions sont multiples, vous devez déjouer les plans de l'ennemi",
-    "Et suivre les instructions qui vous mèneront au hacker...",
-    "Votre mission est cruciale pour la sécurité nationale",
+    "Vous travaillez en tant qu'ingénieur de sécurité informatique pour la \nNSA, l'agence de sécurité nationale américaine",
+    "Votre équipe est actuellement sur un dossier top-secret lié à une surveillance nationale",
+    "Personne ne doit accéder à ces fichiers classés Secrets Défense",
+    "Suivez les intructions de Mr. Loyd, votre patron",
+    "Vos coéquipiers comptent sur vous",
     "",
     "<span style='font-family: Henny Penny; font-size: 3.5em;'>CRISIS</span>"
 ];
@@ -264,7 +261,7 @@ setInterval(() => {
     
     const timeFormat = formatTemps(timeSpent);
     
-    document.getElementById('timeSpent').textContent = `${timeFormat}`;
+    document.getElementById('timeSpent').textContent = `Temps de jeu : ${timeFormat}`;
 
 }, 1000);
 

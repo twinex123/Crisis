@@ -245,6 +245,18 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #000;
     z-index: 1000;
+    background: url("../images/maps.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#red-point {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 50%;
+    transition: top 0.5s ease, left 0.5s ease;  
 }

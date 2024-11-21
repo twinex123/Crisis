@@ -142,6 +142,8 @@ function callFBI(){
     hangup_6.innerHTML = "<i class='fa-solid fa-bars'></i>";
 
     setTimeout(() => {
+        const fbi_voice = new Audio("../assets/sounds/fbi.mp3");
+        fbi_voice.play();
         startChrono();
     }, 9000)
 
@@ -153,6 +155,16 @@ function callFBI(){
         timer = setInterval(() => {
             secondsElapsed++;
             updateDisplay();
+
+            if(secondsElapsed >= 11){
+                closePhoneApp();
+            }
+
+            if(secondsElapsed == 12){
+                const maps_voice = new Audio("../assets/sounds/maps.mp3");
+                maps_voice.play();
+                let can_open_maps = true;
+            }
         }, 1000);
     }
 
@@ -187,4 +199,74 @@ function callFBI(){
         hangup_4.innerHTML = original_hangup4;
         hangup_6.innerHTML = original_hangup6;
     })
+}
+
+can_open_maps = true;
+
+const redDot = document.getElementById("red-point");
+const mapsApp = document.querySelector(".maps-app");
+
+const path = [
+    { top: 10, left: 18 },
+    { top: 20, left: 18 },
+    { top: 30, left: 18 },
+    { top: 40, left: 18 },
+    { top: 50, left: 18 },
+    { top: 60, left: 18 },
+    { top: 70, left: 18 },
+    { top: 80, left: 18 },
+    { top: 90, left: 18 },
+    { top: 100, left: 18 },
+    { top: 110, left: 18 },
+    { top: 120, left: 18 },
+    { top: 130, left: 18 },
+    { top: 140, left: 18 },
+    { top: 150, left: 18 },
+    { top: 160, left: 18 },
+    { top: 170, left: 18 },
+    { top: 180, left: 18 },
+    { top: 190, left: 18 },
+    { top: 200, left: 18 },
+    { top: 200, left: 20 },
+    { top: 200, left: 30 },
+    { top: 200, left: 40 },
+    { top: 200, left: 50 },
+    { top: 200, left: 60 },
+    { top: 200, left: 70 },
+    { top: 200, left: 80 },
+    { top: 200, left: 90 },
+    { top: 200, left: 100 },
+    { top: 200, left: 110 },
+    { top: 200, left: 120 },
+    { top: 200, left: 130 },
+    { top: 200, left: 140 },
+    { top: 200, left: 150 },
+    { top: 200, left: 160 },
+    { top: 200, left: 170 },
+];
+
+let currentStep = 0;
+
+function moveRedDot() {
+    if (currentStep < path.length) {
+        const { top, left } = path[currentStep];
+        
+        redDot.style.top = `${top}px`;
+        redDot.style.left = `${left}px`;
+
+        currentStep++;
+        setTimeout(moveRedDot, 500);
+    }
+}
+
+function openMaps() {
+    if (can_open_maps) {
+        mapsApp.style.display = "block";
+        currentStep = 0; 
+        moveRedDot(); 
+    }
+}
+
+function closeMaps() {
+    mapsApp.style.display = "none";
 }

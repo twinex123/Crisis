@@ -341,3 +341,10 @@ body {
     bottom: 25px;
     left: 25px;
 }
+
+#timeSpent{
+    position: absolute;
+    margin-right: 10px;
+    right: 10vw;
+    bottom: calc(50px + 5vh);
+}
